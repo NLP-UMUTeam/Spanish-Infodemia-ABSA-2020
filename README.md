@@ -1,8 +1,5 @@
 # Spanish-Infodemia-ABSA-2020
 ## Ontology-driven Aspect-Based Sentiment Analysis of Infectious Diseases in Latin American Spanish  
-Companion dataset and evaluation resources for the article:  
-**“Ontology-driven aspect-based sentiment analysis classification: An infodemiological case study regarding infectious diseases in Latin America”**  
-_Future Generation Computer Systems (FGCS), 2021_
 
 ## TL-DR: Highlights
 - Introduction of **Spanish-Infodemia-ABSA-2020**, an ontology-driven corpus for **Aspect-Based Sentiment Analysis (ABSA)** on infectious diseases in Latin America.
@@ -50,47 +47,34 @@ Public health surveillance increasingly leverages social media data to monitor o
 
 
 ## Dataset: Spanish-Infodemia-ABSA-2020
-This dataset contains Spanish tweets referring to infectious diseases relevant in Latin America, annotated for **aspect-based sentiment analysis**.
+This dataset contains Spanish tweets referring to infectious diseases relevant in Latin America, annotated for **aspect-based sentiment analysis**. Each tweet includes a Global sentiment polarity. The aspect terms have been extracted using an ontology of disease-related entities, covering diseases such as COVID, Dengue, Zika, Chikungunya, Influenza, and Yellow Fever among others.
 
-### Annotation Layers
-Each tweet includes:
-
-- **Aspect terms**: disease-related entities grounded in an ontology (e.g., *virus, mosquito, vaccine, outbreak*).  
-- **Aspect categories**: mapped to the infectious-disease ontology.  
-- **Aspect-level sentiment polarity**: positive, negative, neutral.  
-- **Global sentiment polarity**: sentiment toward overall message.  
-
-### Diseases Covered
-- Dengue  
-- Zika  
-- Chikungunya  
-- Influenza  
-- Yellow Fever  
-- Others (depending on the ontology version)
-
-### Ontology
-The infectious-disease ontology includes classes for:
-
-- **Diseases** (arboviruses, respiratory viruses…)  
-- **Symptoms**  
-- **Transmission vectors** (e.g., *mosquito Aedes aegypti*)  
-- **Prevention measures**  
-- **Medical treatments**  
-- **Risk factors**  
-
-
----
-
-## Access
 Following Twitter TOS, the dataset is distributed as **tweet IDs plus annotation files**.
 
 Download links (IDs + annotations + ontology):
 https://pln.inf.um.es/corpora/zika/zika-spanish-2020.rar
 
-## Corpus Statistics  
-TBD
+An example of the dataset is shown below: 
+<p align="center">
+  <img src="corpus-classifier.png" alt="Corpus Classifier" width="33%">
+</p>
+
 
 ## Evaluation
+
+The following pipeline illustrates the workflow followed in the study:
+
+<p align="center">
+  <img src="pipeline.png" alt="Processing Pipeline" width="50%">
+</p>
+
+1. **Data acquisition** from Twitter  
+2. **Corpus classification and preprocessing**  
+4. **Feature extraction** for sentiment classification  
+5. **Model evaluation** using neural architectures (BiLSTM, CNN, LSTM) and MLP  
+
+The integration of linguistic modelling and semantic normalization supports robust, domain-aware sentiment analysis for infectious disease surveillance.
+
 The original article evaluates several hybrid models combining:
 
 - **Linguistic features (LF)**  
@@ -104,6 +88,32 @@ The original article evaluates several hybrid models combining:
 - Classification models based on **linguistic features** and **word embeddings** achieved strong performance in predicting sentiment toward each aspect, outperforming bag-of-words baselines.
 - Word-embedding models (FastText) captured regional lexical variation across Latin American Spanish, improving the detection of disease-related terms and sentiment expressions.
 - The combination of **ontology-driven aspect extraction** with **linguistic + embedding-based classifiers** provides a robust pipeline for infodemiological analysis on social media.
+
+### Linguistic Feature Distribution Across Sentiment Classes
+<p align="center">
+<img src="lf-sentiment-average.png" alt="Linguistic Features" width="75%">
+</p>
+
+This figure shows the distribution of linguistic features across the three sentiment classes (**positive**, **neutral**, **negative**). It provides insight into how specific textual characteristics—such as numerals, syllable count, prepositions, verb types, or readability—vary depending on the user’s expressed attitude. Negative tweets often exhibit higher proportions of emotionally charged or structurally complex features, while positive and neutral tweets tend to remain more homogeneous. This analysis supports the design of feature-based sentiment classification models used in the study.
+
+To observe the relation between the concepts of the ontology, we design a tool that highlights ontology-mapped concepts directly within tweet text, showing how domain knowledge is used to identify aspects relevant to infectious diseases. It also provides TF-IDF and TF-IDF_E weights for each concept, supporting both annotation and feature
+analysis workflows. 
+
+<p>Ontology-based highlighting of concepts and TF-IDF scoring for semantic enrichment.</p>
+<p align="center">
+<img src="semantic-annotation.png" alt="Semantic Annotation Tool" width="75%">
+</p>
+
+
+### Query Interface for Aspect-Based Sentiment Exploration
+<p align="center">
+<img src="interface.png" alt="Query Interface" width="75%">
+</p>
+
+This interface enables interactive exploration of tweets related to infectious diseases. Users can filter tweets by disease or aspect category and inspect sentiment predictions at the tweet and aspect levels. 
+
+The system also displays related concepts (e.g., symptoms, transmission processes, regions) along with their **positive/neutral/negative** sentiment scores.  
+This visualization demonstrates how ontology-driven aspect extraction enhances interpretability and supports infodemiological monitoring.
 
 ### Acknowledgments
 This work has been supported by the *Spanish National Research Agency (AEI)* and the *European Regional Development Fund (FEDER/ERDF)* through projects **KBS4FIA (TIN2016-76323-R)** and **LaTe4PSP (PID2019-107652RB-I00)**. 
