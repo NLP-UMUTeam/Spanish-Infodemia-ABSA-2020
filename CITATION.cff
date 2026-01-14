@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Spanish-Infodemia-ABSA-2020: A Spanish Twitter Corpus for Aspect-Based Sentiment Analysis"
+version: 1.1
+doi: 10.5281/zenodo.18245405
+date-released: 2026-01-14
+license: CC-BY-NC-4.0
+repository-code: https://github.com/NLP-UMUTeam/Spanish-Infodemia-ABSA-2020
+authors:
+  - family-names: García-Díaz
+    given-names: José Antonio
+keywords:
+  - ABSA
+  - sentiment analysis
+  - Spanish
+  - Twitter
+  - COVID-19
+  - infodemic
