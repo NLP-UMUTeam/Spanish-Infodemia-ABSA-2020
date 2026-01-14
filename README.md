@@ -1,5 +1,8 @@
 # Spanish-Infodemia-ABSA-2020
-## Ontology-driven Aspect-Based Sentiment Analysis of Infectious Diseases in Latin American Spanish  
+## Ontology-driven Aspect-Based Sentiment Analysis of Infectious Diseases in Latin American Spanish
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18245405.svg)](https://doi.org/10.5281/zenodo.18245405)
+
+
 
 Spanish-Infodemia-ABSA-2020 is a Spanish Twitter corpus for **Aspect-Based Sentiment Analysis (ABSA)** related to the COVID-19 infodemic.
 The dataset was originally released in 2020 and manually annotated following a voting-based agreement procedure.
@@ -168,6 +171,13 @@ In addition, José Antonio García-Díaz has been supported by *Banco Santander*
   year={2020},
   publisher={Elsevier}
 }
+```
+
+or the Zenodo record
+```
+García-Díaz, J. A. et al. (2026).
+Spanish-Infodemia-ABSA-2020: A Spanish Twitter Corpus for Aspect-Based Sentiment Analysis.
+Zenodo. https://doi.org/10.5281/zenodo.18245405
 ```
 
 
