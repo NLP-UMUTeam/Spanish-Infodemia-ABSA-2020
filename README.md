@@ -1,6 +1,11 @@
 # Spanish-Infodemia-ABSA-2020
 ## Ontology-driven Aspect-Based Sentiment Analysis of Infectious Diseases in Latin American Spanish  
 
+Spanish-Infodemia-ABSA-2020 is a Spanish Twitter corpus for **Aspect-Based Sentiment Analysis (ABSA)** related to the COVID-19 infodemic.
+The dataset was originally released in 2020 and manually annotated following a voting-based agreement procedure.
+
+This repository provides both the original data distribution used in the associated publication and an updated, FAIR-compliant version designed to facilitate reuse and long-term preservation.
+
 ## TL-DR: Highlights
 - Introduction of **Spanish-Infodemia-ABSA-2020**, an ontology-driven corpus for **Aspect-Based Sentiment Analysis (ABSA)** on infectious diseases in Latin America.
 - Tweets were collected and annotated around emerging infectious diseases including **Dengue, Zika, Chikungunya, Influenza, Yellow Fever**, etc.
@@ -47,17 +52,35 @@ Public health surveillance increasingly leverages social media data to monitor o
 
 
 ## Dataset: Spanish-Infodemia-ABSA-2020
-This dataset contains Spanish tweets referring to infectious diseases relevant in Latin America, annotated for **aspect-based sentiment analysis**. Each tweet includes a Global sentiment polarity. The aspect terms have been extracted using an ontology of disease-related entities, covering diseases such as COVID, Dengue, Zika, Chikungunya, Influenza, and Yellow Fever among others.
+The repository contains two main data distributions:
 
-Following Twitter TOS, the dataset is distributed as **tweet IDs plus annotation files**.
+1. The original version of the dataset follows the structure used in the associated publication and includes tweet text and derived linguistic annotations. This distribution is preserved for reproducibility purposes.
+2. A consolidated, tabular version of the dataset is provided to improve interoperability and reuse, following the FAIR principles.
+  - corpus/infodemia_absa_public.csv
+  - Public version of the dataset.
+  - Contains tweet identifiers, sentiment labels, temporal information, and annotation agreement metadata.
+  - Does not include tweet text or derived textual representations.
+  - Fully compliant with Twitter Terms of Service.
 
-Download links (IDs + annotations + ontology):
-https://pln.inf.um.es/corpora/zika/zika-spanish-2020.rar
+It also contains a restricted version including tweet text available for research purposes upon request.
+
+### Dataset details
+Due to Twitter’s Terms of Service, the publicly available version of the dataset only includes tweet identifiers and annotations.
+
+The full version of the dataset, including tweet text and derived linguistic features, can be made available for research purposes upon request and under controlled conditions.
+https://forms.gle/LuouKBCLYUXYRUJJ8
 
 An example of the dataset is shown below: 
 <p align="center">
   <img src="corpus-classifier.png" alt="Corpus Classifier" width="33%">
 </p>
+
+### Annotation and agreement
+Tweets were manually annotated following a voting-based agreement procedure.
+The dataset includes several agreement-related fields (e.g. number of votes, agreement level, and confidence score) to support transparency and reuse.
+
+Details about the annotation process and agreement computation are described in the associated publication.
+
 
 
 ## Evaluation
@@ -96,8 +119,7 @@ The original article evaluates several hybrid models combining:
 
 This figure shows the distribution of linguistic features across the three sentiment classes (**positive**, **neutral**, **negative**). It provides insight into how specific textual characteristics—such as numerals, syllable count, prepositions, verb types, or readability—vary depending on the user’s expressed attitude. Negative tweets often exhibit higher proportions of emotionally charged or structurally complex features, while positive and neutral tweets tend to remain more homogeneous. This analysis supports the design of feature-based sentiment classification models used in the study.
 
-To observe the relation between the concepts of the ontology, we design a tool that highlights ontology-mapped concepts directly within tweet text, showing how domain knowledge is used to identify aspects relevant to infectious diseases. It also provides TF-IDF and TF-IDF_E weights for each concept, supporting both annotation and feature
-analysis workflows. 
+To observe the relation between the concepts of the ontology, we design a tool that highlights ontology-mapped concepts directly within tweet text, showing how domain knowledge is used to identify aspects relevant to infectious diseases. It also provides TF-IDF and TF-IDF_E weights for each concept, supporting both annotation and feature analysis workflows. 
 
 <p>Ontology-based highlighting of concepts and TF-IDF scoring for semantic enrichment.</p>
 <p align="center">
@@ -114,6 +136,21 @@ This interface enables interactive exploration of tweets related to infectious d
 
 The system also displays related concepts (e.g., symptoms, transmission processes, regions) along with their **positive/neutral/negative** sentiment scores.  
 This visualization demonstrates how ontology-driven aspect extraction enhances interpretability and supports infodemiological monitoring.
+
+
+### Licence
+The dataset is distributed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) licence.
+
+This licence applies to the dataset annotations and structure.
+Tweet content remains subject to Twitter’s Terms of Service.
+
+
+### Provenance
+The dataset was created and annotated by the authors of the associated publication.
+The original release did not include a FAIR-oriented distribution.
+
+A consolidated version has been introduced to improve interoperability and long-term reuse, while preserving the original data distribution used in the publication.
+
 
 ### Acknowledgments
 This work has been supported by the *Spanish National Research Agency (AEI)* and the *European Regional Development Fund (FEDER/ERDF)* through projects **KBS4FIA (TIN2016-76323-R)** and **LaTe4PSP (PID2019-107652RB-I00)**. 
